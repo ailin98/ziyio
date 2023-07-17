@@ -1,6 +1,6 @@
 /**
  * 悦临平v1.0
- * 执行时间： 25 10,16 * * * 悦临平.js
+ * 执行时间： 25 10 * * * 悦临平.js
  * const $ = new Env("悦临平");
  * 注册地址：https://news.hi-lp.cn/webChannels/invite?inviteCode=WET28W&tenantId=45&accountId=64afaabb5057614090ef46bb
  * 
