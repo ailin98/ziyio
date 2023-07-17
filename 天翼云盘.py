@@ -1,14 +1,10 @@
-# 来自吾爱论坛，在原作者的基础上增加了签到成功server酱推送提醒的功能，如有侵权请提issue。
-# @author Sten
-# 我的仓库:https://github.com/aefa6/QinglongScript.git
-# 觉得不错麻烦点个star谢谢
-
-"""[/backcolor]
-[backcolor=rgb(255, 255, 254)][url=https://www.52pojie.cn/thread-1231190-1-1.html]https://www.52pojie.cn/thread-1231190-1-1.html[/url][/backcolor]
- 
-[backcolor=rgb(255, 255, 254)]感谢作者开源天翼云签到部分源码：[/backcolor]
-[backcolor=rgb(255, 255, 254)]https://github.com/t00t00-crypto/cloud189-action/blob/master/checkin.py[/backcolor][backcolor=rgb(255, 255, 254)] 及 [login_function.py]([/backcolor][backcolor=rgb(255, 255, 254)]https://github.com/Dawnnnnnn/Cloud189/blob/master/functions/login_function.py[/backcolor][backcolor=rgb(255, 255, 254)])[/backcolor]
 """
+[url=https://www.52pojie.cn/thread-1231190-1-1.html]https://www.52pojie.cn/thread-1231190-1-1.html[/url]
+ 
+感谢作者开源天翼云签到部分源码：
+https://github.com/t00t00-crypto/cloud189-action/blob/master/checkin.py 及 [login_function.py](https://github.com/Dawnnnnnn/Cloud189/blob/master/functions/login_function.py)
+"""
+const $ = new Env("天翼云盘");
 import time
 import re
 import json
@@ -27,8 +23,8 @@ B64MAP = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/"
 s = requests.Session()
  
 # 在下面两行的引号内贴上账号（仅支持手机号）和密码
-username = "1590884XXXX"
-password = "refusT."
+username = " "
+password = " "
  
 _ = """
 if(username == "" or password == ""):
@@ -39,8 +35,8 @@ if(username == "" or password == ""):
 assert username and password, "在第23、24行填入有效账号和密码"
  
 # 钉钉机器人token 申请key 并设置密钥
-ddtoken = ""
-ddsecret = ""
+ddtoken = " "
+ddsecret = " "
 # xuthuskey = "27a...........................7b"
  
 if not ddtoken:
@@ -169,14 +165,6 @@ def main():
     if (response.json()['isSign'] == "false"):
         print(f"未签到，签到获得{netdiskBonus}M空间")
         res1 = f"未签到，签到获得{netdiskBonus}M空间"
-        # Sever酱推送接口
-        sc_key = '' 
-        sc_url = f'https://sc.ftqq.com/{sc_key}.send'
-        # Sever酱推送
-        info = f"""
-        {res1}     
-        """
-        requests.post(sc_url, data={'text': '天翼云盘', 'desp': info})
     else:
         print(f"已经签到过了，签到获得{netdiskBonus}M空间")
         res1 = f"已经签到过了，签到获得{netdiskBonus}M空间"
@@ -220,13 +208,12 @@ def main():
         string_to_sign_enc = string_to_sign.encode('utf-8')
         hmac_code = hmac.new(secret_enc, string_to_sign_enc, digestmod=hashlib.sha256).digest()
         sign = urllib.parse.quote_plus(base64.b64encode(hmac_code))
-        url = f'https://oapi.dingtalk.com/robot/send'
-        params={"access_token":ddtoken,"timestamp":timestamp,"sign":sign}
+        url = f'https://oapi.dingtalk.com/robot/send?access_token={ddtoken}×tamp={timestamp}&sign={sign}'
         headers = {"Content-Type": "application/json;charset=utf-8"}
         data = {"msgtype": "markdown",
                 "markdown": {"title": f"sing189", "text": f"sing189 \n> {res1} \n>{res2}{res3}{res4}"}}
         response = requests.post(
-            url=url, data=json.dumps(data), headers=headers, timeout=15, params=params
+            url=url, data=json.dumps(data), headers=headers, timeout=15
         ).json()
  
         if not response["errcode"]:
@@ -248,4 +235,3 @@ def handler(event, context):  # aliyun default
 if __name__ == "__main__":
     # time.sleep(random.randint(5, 30))
     main()
-
