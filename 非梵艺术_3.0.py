@@ -7,7 +7,9 @@
 变量 ff_token，格式：账号-密码（列如：123-321） 多账户\n隔开
 当前就一个签到功能，自测会不会黑号，以后再加功能
 '''
-
+cron 15 9 * * *  
+const $ = new Env("非凡艺术");
+ 
 import requests
 import time
 import random
