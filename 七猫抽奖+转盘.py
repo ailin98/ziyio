@@ -3,6 +3,7 @@
 # 变量名 qmreadck         多账号@或者回车分割
 #幸运大转盘+幸运7抽奖
 #抓包过程+抓包教程：https://www.bilibili.com/video/BV1Wm4y1678j/?spm_id_from=333.999.0.0&vd_source=d2bc76339a6a058a723333a49361bd97
+const $ = new Env("七猫抽奖-后");
 import json,os
 
 import requests,time
