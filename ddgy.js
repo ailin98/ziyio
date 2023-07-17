@@ -21,7 +21,7 @@ export ddgyToken='uid&token'
 重写：
 [task_local]
 #滴滴果园
-28 0,8,12,18 * * * https://raw.githubusercontent.com/leafTheFish/DeathNote/main/ddgy.js, tag=滴滴果园, enabled=true
+28 0,9,13,19 * * * https://raw.githubusercontent.com/leafTheFish/DeathNote/main/ddgy.js, tag=滴滴果园, enabled=true
 [rewrite_local]
 https://game.xiaojukeji.com/api/game/plant/enter url script-request-header https://raw.githubusercontent.com/leafTheFish/DeathNote/main/ddgy.js
 [MITM]
