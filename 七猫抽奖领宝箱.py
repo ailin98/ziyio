@@ -1,3 +1,4 @@
+cron: 12 21 * * *
 const $ = new Env("七猫抽奖-后");
 import json
 import os
