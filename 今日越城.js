@@ -1,6 +1,6 @@
 /**
  * 今日越城
- * 执行时间： 25 10,16 * * *  今日越城.js
+ * 执行时间： 25 9 * * *  今日越城.js
  * const $ = new Env("今日越城");
  * 更新说明：按照无言大佬的建议修复了评论失败的问题
  * 注册地址：https://app.tmuyun.com/webChannels/invite?inviteCode=WQRKZU&tenantId=31&accountId=648284ada7fd3972f7377837
