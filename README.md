@@ -1,5 +1,5 @@
-自用，都是大佬的作品，我只是借鉴
-青龙面板拉取
+#自用，都是大佬的作品，我只是借鉴
+#青龙面板拉取
 docker run -dit \
 -v /root/ql/config:/ql/config \
 -v /root/ql/log:/ql/log \
