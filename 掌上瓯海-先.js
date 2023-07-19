@@ -1,7 +1,7 @@
 /**
  * 掌上瓯海v1.31
  * 执行时间： 25 10,16 * * *  zsoh.js
- * const $ = new Env("掌上瓯海");
+ * const $ = new Env("掌上瓯海-先");
  * 更新说明：按照无言大佬的建议修复了评论失败的问题
  * 注册地址：https://app.ohnews.cn/webChannels/invite?inviteCode=HT6RK9&tenantId=78&accountId=647addefa7fd3962fa8466a4
  * 
