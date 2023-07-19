@@ -1,6 +1,6 @@
 /**
  * 掌上瓯海v2.0
- * 执行时间： 25 10,16 * * *  zsoh.js
+ * 执行时间： 35 11 * * *  zsoh.js
  * const $ = new Env("掌上瓯海");
  * 注册地址：https://app.ohnews.cn/webChannels/invite?inviteCode=HT6RK9&tenantId=78&accountId=647addefa7fd3962fa8466a4
  * 
