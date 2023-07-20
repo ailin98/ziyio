@@ -1,7 +1,6 @@
 """
-#环境变量nn_accounts，账号密码用,分割，多账号之间用;分割
-#例139****1234,passwd1;150****5678,passwd2
-cron: 2 7 * * *
+#环境变量nnjsq，账号密码用:分割，多账号之间用@分割
+cron: 15 9 * * *
 const $ = new Env("nn加速器");
 """
 import hashlib
@@ -46,36 +45,59 @@ def login(phone, passwd):
     if login_status['retMsg'] != '该用户不存在':
         headers['token'] = login_status['retData']['token']
         _data = {
+            "taskIds": [
+                12,
+                13,
+                16,
+                17,
+                18,
+                24,
+                25,
+                27,
+                28,
+                29,
+                30
+            ],
             "userId": login_status['retData']['userId']
         }
-        task_ids = []
-        task_list = requests.post(url='https://opapi.nnraytheon.com/nn-assist/taskPoints/findAllTask',
-                                   data=json.dumps(_data), headers=headers).json()
-        for task in task_list['retData']:
-            task_ids.append(task['id'])
-        print('任务ID:', task_ids)
-        for task_id in task_ids:
+        get_num = \
+            requests.post(url='https://opapi.nnraytheon.com/nn-assist/taskPoints/findUserTaskInfo', data=json.dumps(_data),
+                          headers=headers).json()['retData']
+        for i in get_num:
             for e in range(10):
                 _data = {
                     "point": 1,
-                    "taskId": task_id,
+                    "taskId": i['taskId'],
                     "taskName": "",
                     "userId": login_status['retData']['userId']
                 }
                 result = requests.post(url='https://opapi.nnraytheon.com/nn-assist/taskPoints/pointCallBack',
-                                        data=json.dumps(_data), headers=headers).json()
+                                       data=json.dumps(_data), headers=headers).json()
                 print(result['retMsg'])
                 if result['retMsg'] == '当天完成任务已上限':
                     break
                 else:
                     sleep(0)
                     pass
+                    
+        find_user_point_url = 'https://opapi.nnraytheon.com/nn-assist/taskPoints/findUserPoint/168222391'
+        headers['content-length'] = '0'
+        response = requests.post(url=find_user_point_url, headers=headers).json()
+        user_point = response['retData']['point']
+        print(f"账号总积分: {user_point}")
 
-# 获取环境变量中的所有账号和密码
-accounts_str = os.environ.get('nn_accounts')
 
-# 将账号和密码分割成列表
-accounts_list = accounts_str.split(';')
-for account in accounts_list:
-    phone, passwd = account.split(',')
-    login(phone, passwd)
+accounts = {}
+account_str = os.environ.get('nnjsq')
+if account_str:
+    for i, account in enumerate(account_str.split('@')):
+        username, userpass = account.split(':')
+        account_name = f"account{i+1}"
+        accounts[account_name] = {
+            "phone": username,
+            "passwd": userpass
+        }
+
+for account in accounts:
+    print(f"Logging in to {account}...")
+    login(accounts[account]["phone"], accounts[account]["passwd"])
