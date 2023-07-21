@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 # @Time: 2023年04月23日21时26分
-cron: 33 19 * * *
+cron: 13 18 * * *
 const $ = new Env("雨云签到");
 import requests
 from datetime import datetime, timedelta, timezone
