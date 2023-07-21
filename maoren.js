@@ -100,7 +100,7 @@ async function Login () {
                 'Connection': 'Keep-Alive',
                 'Accept': '*/*',
                 'Accept-Language': ' zh-cn',
-                'User-Agent': 'Mozilla/5.0 (Linux; Android 8.0; DUK-AL20 Build/HUAWEIDUK-AL20; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/57.0.2987.132 MQQBrowser/6.2 TBS/044353 Mobile Safari/537.36 MicroMessenger/6.7.3.1360(0x26070333) NetType/WIFI Language/zh_CN Process/tools',
+                'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36 MicroMessenger/7.0.20.1781(0x6700143B) NetType/WIFI MiniProgramEnv/Windows WindowsWechat/WMPF XWEB/8287',
                 'Referer': 'https://servicewechat.com/wxe01416bd2b06871c/87/page-frame.html',
                 'Host': 'shopapp.miiow.com.cn',
                 'Accept-Encoding': 'gzip, compress, deflate, br'
