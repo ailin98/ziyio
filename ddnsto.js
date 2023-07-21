@@ -1,3 +1,4 @@
+cron: 12 10 * * *
 const $ = new Env('DDNSTO自动续期');
 let ddnstock = ($.isNode() ? process.env.ddnstock : $.getdata('ddnstock')) || '';
 let ddnstockArr = []
