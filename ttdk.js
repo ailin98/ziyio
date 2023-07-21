@@ -7,6 +7,7 @@
 let scriptVersion = "1.2";
 let update_data = "完成签到，待完善提现";
 //=======================================//
+cron: 12 10 * * *
 const $ = new Env('天天打卡');
 const notify = $.isNode() ? require('./sendNotify') : '';
 const Notify = 1 		//0为关闭通知,1为打开通知,默认为1
