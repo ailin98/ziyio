@@ -8,7 +8,6 @@
 # 先开抓包，进app，mnote.caiyun.feixin.10086.cn/noteServer/api/authTokenRefresh.do，抓这个，，请求体中authToken的值
 # 格式 ydypCk = Authorization值#手机号#authToken的值
 # 定时：一天两三次
-const $ = new Env("中国移动云盘");
 import os
 import random
 import time
